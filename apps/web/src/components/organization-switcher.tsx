@@ -10,6 +10,7 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu'
@@ -50,6 +51,7 @@ export async function OrganizationSwitcher() {
         className="w-[200px]"
       >
         <DropdownMenuGroup>
+          <DropdownMenuLabel>Organizations</DropdownMenuLabel>
           {organizations.map((organization) => {
             return (
               <DropdownMenuItem key={organization.id} asChild>

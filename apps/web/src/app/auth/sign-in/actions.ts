@@ -19,19 +19,15 @@ export async function signInWithEmailAndPassword(data: FormData) {
   if (!result.success) {
     const errors = result.error.flatten().fieldErrors
 
-    return {
-      success: false,
-      message: null,
-      errors,
-    }
+    return { success: false, message: null, errors }
   }
 
   const { email, password } = result.data
 
   try {
     const { token } = await signInWithPassword({
-      email: String(email),
-      password: String(password),
+      email,
+      password,
     })
 
     cookies().set('token', token, {
